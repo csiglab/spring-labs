@@ -12,7 +12,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/$(echo ${{ github.event.repository.name }} | tr '[:upper:]' '[:lower:]'):latest
+      IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/$(echo ${{ github.event.repository.name }} | tr '[:upper:]' '[:lower:]')
 
     steps:
     - name: Checkout
@@ -39,12 +39,12 @@ jobs:
       id: build-docker-image
       run: |
         ls -la 
-        docker build . -f Dockerfile -t $IMAGE_NAME
+        docker build . -f Dockerfile -t $IMAGE_NAME:latest
     
     - name: push the docker image
       id: push-docker-image
       run: |
-        docker push $IMAGE_NAME
+        docker push $IMAGE_NAME:latest
 
 
 
