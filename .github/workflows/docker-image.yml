@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REPOSITORY_NAME : ${{ github.event.repository.name }}
-      USER_DOCKER : ${{ secrets.DOCKERHUB_USERNAME }}
+      USER_DOCKER : ${{ vars.DOCKERHUB_USERNAME }}
       IMAGE_NAME: $(echo ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }} | tr '[:upper:]' '[:lower:]')
 
     steps:
