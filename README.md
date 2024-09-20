@@ -23,3 +23,9 @@ A simple API for books management with persistence, basic CRUD operations and se
 3. Update a book
 4. Delete a book
 5. Find a book by title
+
+
+### How to run
+
+1. docker pull  profile/repo
+2. docker run -p 8081:8081 profile/repo
