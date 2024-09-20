@@ -14,7 +14,7 @@ jobs:
     env:
       REPOSITORY_NAME : ${{ github.event.repository.name }}
       USER_DOCKER : ${{ secrets.DOCKERHUB_USERNAME }}
-      IMAGE_NAME: $USER_DOCKER/$(echo $REPOSITORY_NAME | tr '[:upper:]' '[:lower:]')
+      IMAGE_NAME: (echo $USER_DOCKER)/$(echo $REPOSITORY_NAME | tr '[:upper:]' '[:lower:]')
 
     steps:
     - name: Checkout
