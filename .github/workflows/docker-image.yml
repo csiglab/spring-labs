@@ -35,12 +35,15 @@ jobs:
     - name: build the docker image
       id: build-docker-image
       run: |
+        IMAGE_NAME="${{ github.repository }}:latest"
         ls -la 
-        docker build . -f Dockerfile -t ${{secrets.DOCKERHUB_USERNAME}}/app:latest
+        docker build . -f Dockerfile -t $IMAGE_NAME:latest
     
     - name: push the docker image
       id: push-docker-image
-      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/app:latest
+      run: |
+        IMAGE_NAME="${{ github.repository }}:latest"
+        docker push $IMAGE_NAME:latest
 
 
 
