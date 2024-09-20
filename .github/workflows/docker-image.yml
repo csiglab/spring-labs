@@ -35,14 +35,14 @@ jobs:
     - name: build the docker image
       id: build-docker-image
       run: |
-        IMAGE_NAME="${{ github.event.repository.name }}:latest"
+        IMAGE_NAME="$(echo ${{ github.event.repository.name }} | tr '[:upper:]' '[:lower:]')"
         ls -la 
         docker build . -f Dockerfile -t $IMAGE_NAME:latest
     
     - name: push the docker image
       id: push-docker-image
       run: |
-        IMAGE_NAME="${{ github.event.repository.name }}:latest"
+        IMAGE_NAME="$(echo ${{ github.event.repository.name }} | tr '[:upper:]' '[:lower:]')"
         docker push $IMAGE_NAME:latest
 
 
