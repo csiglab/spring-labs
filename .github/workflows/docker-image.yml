@@ -39,6 +39,7 @@ jobs:
       id: build-docker-image
       run: |
         ls -la 
+        echo $IMAGE_NAME
         docker build . -f Dockerfile -t $IMAGE_NAME:latest
     
     - name: push the docker image
