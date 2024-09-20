@@ -36,11 +36,11 @@ jobs:
       id: build-docker-image
       run: |
         ls -la 
-        docker build . -f Dockerfile -t Simple-Books-API-with-Spring-Boot-master:latest
+        docker build . -f Dockerfile -t simple-books-api-with-spring-boot:latest
     
     - name: push the docker image
       id: push-docker-image
-      run: docker push Simple-Books-API-with-Spring-Boot-master:latest
+      run: docker push simple-books-api-with-spring-boot:latest
 
 
 
